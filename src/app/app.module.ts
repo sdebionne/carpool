@@ -11,6 +11,8 @@ import { AppComponent } from './app.component';
 import { AppNavComponent } from './app-nav/app-nav.component';
 import { OrganizerComponent } from './organizer/organizer.component';
 import { AppTableComponent } from './app-table/app-table.component';
+import { NewFormComponent } from './new-form/new-form.component';
+import { CarpoolFormComponent } from './carpool-form/carpool-form.component';
 
 const appRoutes: Routes = [
   { path: ':id/organizer', component: OrganizerComponent },
@@ -32,7 +34,9 @@ const appRoutes: Routes = [
     AppComponent,
     AppNavComponent,
     OrganizerComponent,
-    AppTableComponent
+    AppTableComponent,
+    NewFormComponent,
+    CarpoolFormComponent
   ],
   imports: [
     BrowserModule,
