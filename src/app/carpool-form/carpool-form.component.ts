@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormControl, Validators} from '@angular/forms';
 
 import { Carpool } from '../carpool';
 
@@ -8,6 +9,11 @@ import { Carpool } from '../carpool';
   styleUrls: ['./carpool-form.component.scss']
 })
 export class CarpoolFormComponent implements OnInit {
+
+  emailFormControl = new FormControl('', [
+    Validators.required,
+    Validators.email,
+  ]);
 
   model = new Carpool('', '', '');
 

@@ -1,51 +1,40 @@
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
 
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatGridListModule, MatCardModule, MatTableModule, MatPaginatorModule, MatSortModule, MatButtonModule, MatMenuModule } from '@angular/material';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
-import { RouterModule, Routes } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { MatFormFieldModule, MatOptionModule, MatInputModule, MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatGridListModule, MatCardModule, MatTableModule, MatPaginatorModule, MatSortModule, MatButtonModule, MatMenuModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { AppNavComponent } from './app-nav/app-nav.component';
+import { HomeComponent } from './home/home.component';
 import { OrganizerComponent } from './organizer/organizer.component';
 import { AppTableComponent } from './app-table/app-table.component';
-import { NewFormComponent } from './new-form/new-form.component';
 import { CarpoolFormComponent } from './carpool-form/carpool-form.component';
 
-const appRoutes: Routes = [
-  { path: ':id/organizer', component: OrganizerComponent },
-  { path: 'table',      component: AppTableComponent },
-  // {
-  //   path: 'heroes',
-  //   component: HeroListComponent,
-  //   data: { title: 'Heroes List' }
-  // },
-  // { path: '',
-  //   redirectTo: '/heroes',
-  //   pathMatch: 'full'
-  // },
-  // { path: '**', component: PageNotFoundComponent }
-];
+import { AppRoutingModule } from './/app-routing.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     AppNavComponent,
+    HomeComponent,
     OrganizerComponent,
     AppTableComponent,
-    NewFormComponent,
-    CarpoolFormComponent
+    CarpoolFormComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(
-      appRoutes,
-      { enableTracing: true } // <-- debugging purposes only
-    ),
     LayoutModule,
+    FlexLayoutModule,
+    FormsModule,
+    ReactiveFormsModule,
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
@@ -56,7 +45,11 @@ const appRoutes: Routes = [
     MatCardModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatFormFieldModule,
+    MatOptionModule,
+    MatInputModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
