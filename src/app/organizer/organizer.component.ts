@@ -11,12 +11,12 @@ import { CarpoolService } from '../carpool.service';
 })
 export class OrganizerComponent implements OnInit {
 
+  carpool: Carpool;
+
   constructor(
     private route: ActivatedRoute,
     private carpoolService: CarpoolService,
   ) { }
-
-  carpool: Carpool;
   
   getCarpool(id: string): void {
     this.carpool = this.carpoolService.getCarpool(id);
