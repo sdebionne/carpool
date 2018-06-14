@@ -7,10 +7,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { MatFormFieldModule, MatOptionModule, MatInputModule, MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatGridListModule, MatCardModule, MatTableModule, MatPaginatorModule, MatSortModule, MatButtonModule, MatMenuModule } from '@angular/material';
+import { MatStepperModule, MatFormFieldModule, MatOptionModule, MatInputModule, MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatGridListModule, MatCardModule, MatTableModule, MatPaginatorModule, MatSortModule, MatButtonModule, MatMenuModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
-import { AppNavComponent } from './app-nav/app-nav.component';
+import { CarpoolComponent } from './carpool/carpool.component';
 import { HomeComponent } from './home/home.component';
 import { OrganizerComponent } from './organizer/organizer.component';
 import { AppTableComponent } from './app-table/app-table.component';
@@ -22,8 +22,8 @@ import { AppRoutingModule } from './/app-routing.module';
 @NgModule({
   declarations: [
     AppComponent,
-    AppNavComponent,
     HomeComponent,
+    CarpoolComponent,    
     OrganizerComponent,
     AppTableComponent,
     CarpoolFormComponent,
@@ -49,7 +49,8 @@ import { AppRoutingModule } from './/app-routing.module';
     MatFormFieldModule,
     MatOptionModule,
     MatInputModule,
-    AppRoutingModule
+    MatStepperModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

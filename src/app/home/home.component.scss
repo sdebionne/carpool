@@ -1,5 +1,13 @@
-h1 {
+h1, h2 {
     font-family: Roboto, "Helvetica Neue", sans-serif;
-    font-size: 5em;
     font-variant: small-caps;
+    margin: 0;
+}
+
+h1 {
+    font-size: 8em;
+}
+
+h2 {
+    font-size: 5em;
 }

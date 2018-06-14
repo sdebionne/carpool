@@ -4,11 +4,11 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-nav',
-  templateUrl: './app-nav.component.html',
-  styleUrls: ['./app-nav.component.css']
+  selector: 'carpool',
+  templateUrl: './carpool.component.html',
+  styleUrls: ['./carpool.component.css']
 })
-export class AppNavComponent {
+export class CarpoolComponent {
 
   private title = 'Carpool';
 

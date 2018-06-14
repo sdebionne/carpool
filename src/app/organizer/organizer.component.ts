@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import { Carpool } from '../carpool';
 import { CarpoolService } from '../carpool.service';
@@ -8,13 +9,16 @@ import { CarpoolService } from '../carpool.service';
   templateUrl: './organizer.component.html',
   styleUrls: ['./organizer.component.css']
 })
-export class OrganizerComponent {
+export class OrganizerComponent implements OnInit {
 
-  constructor(private carpoolService: CarpoolService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private carpoolService: CarpoolService,
+  ) { }
 
   carpool: Carpool;
   
-  getHeroes(id: string): void {
+  getCarpool(id: string): void {
     this.carpool = this.carpoolService.getCarpool(id);
   }
 
@@ -24,5 +28,10 @@ export class OrganizerComponent {
     { title: 'Card 3', cols: 1, rows: 2 },
     { title: 'Card 4', cols: 1, rows: 1 }
   ];
+
+  ngOnInit() {
+    const id = this.route.snapshot.paramMap.get('id');
+    this.getCarpool(id);
+  }
   
 }
