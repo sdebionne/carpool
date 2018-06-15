@@ -18,7 +18,7 @@ export class CarpoolFormComponent implements OnInit {
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
 
-  model = new Carpool('', '', '');
+  model: Carpool;
 
   constructor(private _formBuilder: FormBuilder) { }
 

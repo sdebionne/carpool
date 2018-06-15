@@ -13,7 +13,7 @@ export class AppTableComponent implements OnInit {
   dataSource: AppTableDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'name'];
+  displayedColumns = ['name', 'car'];
 
   ngOnInit() {
     this.dataSource = new AppTableDataSource(this.paginator, this.sort);
