@@ -17,6 +17,7 @@ import { AppTableComponent } from './app-table/app-table.component';
 import { CarpoolFormComponent } from './carpool-form/carpool-form.component';
 
 import { AppRoutingModule } from './/app-routing.module';
+import { CarComponent } from './car/car.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { AppRoutingModule } from './/app-routing.module';
     OrganizerComponent,
     AppTableComponent,
     CarpoolFormComponent,
+    CarComponent,
   ],
   imports: [
     BrowserModule,
