@@ -7,7 +7,7 @@ import { CarpoolService } from '../carpool.service';
 @Component({
   selector: 'organizer',
   templateUrl: './organizer.component.html',
-  styleUrls: ['./organizer.component.css']
+  styleUrls: ['./organizer.component.scss']
 })
 export class OrganizerComponent implements OnInit {
 

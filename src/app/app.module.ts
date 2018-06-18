@@ -13,7 +13,7 @@ import { AppComponent } from './app.component';
 import { CarpoolComponent } from './carpool/carpool.component';
 import { HomeComponent } from './home/home.component';
 import { OrganizerComponent } from './organizer/organizer.component';
-import { AppTableComponent } from './app-table/app-table.component';
+import { SummaryComponent } from './summary/summary.component';
 import { CarpoolFormComponent } from './carpool-form/carpool-form.component';
 
 import { AppRoutingModule } from './/app-routing.module';
@@ -26,7 +26,7 @@ import { CarComponent } from './car/car.component';
     HomeComponent,
     CarpoolComponent,    
     OrganizerComponent,
-    AppTableComponent,
+    SummaryComponent,
     CarpoolFormComponent,
     CarComponent,
   ],

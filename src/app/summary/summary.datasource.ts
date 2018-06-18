@@ -4,25 +4,25 @@ import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
 
 // TODO: Replace this with your own data model type
-export interface AppTableItem {
+export interface SummaryItem {
   name: string;
   car: string;
 }
 
 // TODO: replace this with real data from your application
-const EXAMPLE_DATA: AppTableItem[] = [
+const EXAMPLE_DATA: SummaryItem[] = [
   {name: 'Noemie', car: 'Dupont'},
   {name: 'Philomene', car: 'Dupont'},
   {name: 'Elouan', car: 'Dupont'},
 ];
 
 /**
- * Data source for the AppTable view. This class should
+ * Data source for the Summary view. This class should
  * encapsulate all logic for fetching and manipulating the displayed data
  * (including sorting, pagination, and filtering).
  */
-export class AppTableDataSource extends DataSource<AppTableItem> {
-  data: AppTableItem[] = EXAMPLE_DATA;
+export class SummaryDataSource extends DataSource<SummaryItem> {
+  data: SummaryItem[] = EXAMPLE_DATA;
 
   constructor(private paginator: MatPaginator, private sort: MatSort) {
     super();
@@ -33,7 +33,7 @@ export class AppTableDataSource extends DataSource<AppTableItem> {
    * the returned stream emits new items.
    * @returns A stream of the items to be rendered.
    */
-  connect(): Observable<AppTableItem[]> {
+  connect(): Observable<SummaryItem[]> {
     // Combine everything that affects the rendered data into one update
     // stream for the data-table to consume.
     const dataMutations = [
@@ -60,7 +60,7 @@ export class AppTableDataSource extends DataSource<AppTableItem> {
    * Paginate the data (client-side). If you're using server-side pagination,
    * this would be replaced by requesting the appropriate data from the server.
    */
-  private getPagedData(data: AppTableItem[]) {
+  private getPagedData(data: SummaryItem[]) {
     const startIndex = this.paginator.pageIndex * this.paginator.pageSize;
     return data.splice(startIndex, this.paginator.pageSize);
   }
@@ -69,7 +69,7 @@ export class AppTableDataSource extends DataSource<AppTableItem> {
    * Sort the data (client-side). If you're using server-side sorting,
    * this would be replaced by requesting the appropriate data from the server.
    */
-  private getSortedData(data: AppTableItem[]) {
+  private getSortedData(data: SummaryItem[]) {
     if (!this.sort.active || this.sort.direction === '') {
       return data;
     }

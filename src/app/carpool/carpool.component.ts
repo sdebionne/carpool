@@ -17,7 +17,7 @@ export class CarpoolComponent implements OnInit {
   private title = 'Carpool';
   carpool: Carpool;
 
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Medium)
     .pipe(
       map(result => result.matches)
     );
