@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { CarpoolComponent } from './carpool/carpool.component';
 import { OrganizerComponent } from './organizer/organizer.component';
-import { AppTableComponent } from './app-table/app-table.component';
+import { SummaryComponent } from './summary/summary.component';
 import { CarpoolFormComponent } from './carpool-form/carpool-form.component';
 
 const routes: Routes = [
@@ -16,7 +16,7 @@ const routes: Routes = [
     children: [
       {path: '', redirectTo: 'organizer', pathMatch: 'full'}, 
       {path: 'organizer', component: OrganizerComponent},
-      {path: 'table', component: AppTableComponent},
+      {path: 'table', component: SummaryComponent},
     ]
   },
   { path: '**', redirectTo: '', pathMatch: 'full' },
