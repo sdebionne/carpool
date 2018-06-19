@@ -13,6 +13,15 @@ export const CARPOOLS: Array<Carpool> = [
             date: new Date(),
             location: 'Fontaine',
             infos: 'No pets',
+            passengers: [{name: 'Toto'}, {name: 'Titi'}],
+        },
+        {
+            name: 'Bar',
+            contact: 'foo@bar.com',
+            date: new Date(),
+            location: 'Fontaine',
+            infos: 'No pets',
+            passengers: [{name: 'Toto'}, {name: 'Titi'}],
         }],
     } as Carpool,
 ]

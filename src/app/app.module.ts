@@ -17,9 +17,9 @@ import { HomeComponent } from './home/home.component';
 import { OrganizerComponent } from './organizer/organizer.component';
 import { SummaryComponent } from './summary/summary.component';
 import { CarpoolFormComponent } from './carpool-form/carpool-form.component';
+import { CarComponent } from './car/car.component';
 
 import { AppRoutingModule } from './/app-routing.module';
-import { CarComponent } from './car/car.component';
 
 import { reducers, metaReducers } from './reducers';
 
