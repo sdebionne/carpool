@@ -7,6 +7,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { StoreModule } from '@ngrx/store';
+
 import { MatDatepickerModule, MatNativeDateModule, MatStepperModule, MatFormFieldModule, MatOptionModule, MatInputModule, MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatGridListModule, MatCardModule, MatTableModule, MatPaginatorModule, MatSortModule, MatButtonModule, MatMenuModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -18,6 +20,8 @@ import { CarpoolFormComponent } from './carpool-form/carpool-form.component';
 
 import { AppRoutingModule } from './/app-routing.module';
 import { CarComponent } from './car/car.component';
+
+import { reducers, metaReducers } from './reducers';
 
 
 @NgModule({
@@ -55,6 +59,7 @@ import { CarComponent } from './car/car.component';
     MatDatepickerModule,
     MatNativeDateModule,
     AppRoutingModule,
+    StoreModule.forRoot(reducers, { metaReducers }),
   ],
   providers: [],
   bootstrap: [AppComponent]
