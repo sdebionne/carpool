@@ -8,6 +8,7 @@ export class Car {
         public date: Date,
         public location: string,
         public infos: string,
+        public max_passengers: number,
         public passengers: Person[] = [],
       ) {  }
 

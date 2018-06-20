@@ -9,7 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { StoreModule } from '@ngrx/store';
 
-import { MatDatepickerModule, MatNativeDateModule, MatStepperModule, MatFormFieldModule, MatOptionModule, MatInputModule, MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatGridListModule, MatCardModule, MatTableModule, MatPaginatorModule, MatSortModule, MatButtonModule, MatMenuModule } from '@angular/material';
+import { MatTooltipModule, MatDatepickerModule, MatNativeDateModule, MatStepperModule, MatFormFieldModule, MatOptionModule, MatInputModule, MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatGridListModule, MatCardModule, MatTableModule, MatPaginatorModule, MatSortModule, MatButtonModule, MatMenuModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { CarpoolComponent } from './carpool/carpool.component';
@@ -58,6 +58,7 @@ import { reducers, metaReducers } from './reducers';
     MatStepperModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatTooltipModule,
     AppRoutingModule,
     StoreModule.forRoot(reducers, { metaReducers }),
   ],

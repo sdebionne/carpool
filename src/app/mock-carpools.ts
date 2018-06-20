@@ -13,6 +13,7 @@ export const CARPOOLS: Array<Carpool> = [
             date: new Date(),
             location: 'Fontaine',
             infos: 'No pets',
+            max_passengers: 4,
             passengers: [{name: 'Toto'}, {name: 'Titi'}],
         },
         {
@@ -21,6 +22,7 @@ export const CARPOOLS: Array<Carpool> = [
             date: new Date(),
             location: 'Fontaine',
             infos: 'No pets',
+            max_passengers: 6,
             passengers: [{name: 'Toto'}, {name: 'Titi'}],
         }],
     } as Carpool,

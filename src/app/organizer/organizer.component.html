@@ -2,6 +2,8 @@
   <button mat-icon-button><mat-icon class="material-icons">add</mat-icon></button>
 
 </mat-toolbar>
+<div fxLayout="row" fxLayoutAlign="space-between none" >
+  <div fxFlex="20%">
 <mat-list>
   <mat-list-item *ngFor="let person of carpool.persons">
     <img matListAvatar src="..." alt="...">
@@ -12,11 +14,14 @@
     </p>
   </mat-list-item>
 </mat-list>
-<div class="grid-container">
-  <mat-grid-list cols="2" rowHeight="350px">
+</div>
+<mat-divider vertical="true"></mat-divider>
+<div fxFlex class="grid-container">
+  <mat-grid-list cols="3" rowHeight="500">
     <!-- <mat-grid-tile *ngFor="let car of carpool.cars" [colspan]="card.cols" [rowspan]="card.rows"> -->
     <mat-grid-tile *ngFor="let car of carpool.cars">
       <car [car]="car"></car>
     </mat-grid-tile>
   </mat-grid-list>
+</div>
 </div>
