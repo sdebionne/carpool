@@ -13,9 +13,15 @@ export class Carpool {
   ) {  }
 
   addCar(
-    car: Car,
+    car: Car = null,
   ) {
     this.cars.push(car);
+  }
+
+  addPerson(
+    person: Person = new Person(''),
+  ) {
+    this.persons.push(person);
   }
 
 }

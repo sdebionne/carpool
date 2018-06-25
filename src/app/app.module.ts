@@ -22,6 +22,7 @@ import { CarComponent } from './car/car.component';
 import { AppRoutingModule } from './/app-routing.module';
 
 import { reducers, metaReducers } from './reducers';
+import { CarFormComponent } from './car-form/car-form.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { reducers, metaReducers } from './reducers';
     SummaryComponent,
     CarpoolFormComponent,
     CarComponent,
+    CarFormComponent,
   ],
   imports: [
     BrowserModule,

@@ -7,7 +7,7 @@
         <mat-icon>more_vert</mat-icon>
       </button>
       <mat-menu #menu="matMenu" xPosition="before">
-        <button mat-menu-item>Edit</button>
+        <button mat-menu-item (routerLink)="'./car/' + id" routerLinkActive="active">Edit</button>
         <button mat-menu-item>Remove</button>
       </mat-menu>
     </mat-card-title>

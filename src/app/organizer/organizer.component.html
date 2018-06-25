@@ -3,7 +3,7 @@
     <mat-toolbar>
       Passengers
       <span fxFlex></span>
-      <button mat-icon-button (click)="addPassenger()"><mat-icon class="material-icons">add</mat-icon></button>
+      <button mat-icon-button (click)="addPerson()"><mat-icon class="material-icons">add</mat-icon></button>
     </mat-toolbar>
     <mat-list>
       <mat-list-item *ngFor="let person of carpool.persons">
@@ -21,7 +21,7 @@
     <mat-toolbar>
       Cars
       <span fxFlex></span>
-      <button mat-icon-button (click)="addCar()"><mat-icon class="material-icons">add</mat-icon></button>
+      <button mat-icon-button routerLink="./car" routerLinkActive="active"><mat-icon class="material-icons">add</mat-icon></button>
     </mat-toolbar>
     <mat-grid-list cols="3" rowHeight="500">
       <!-- <mat-grid-tile *ngFor="let car of carpool.cars" [colspan]="card.cols" [rowspan]="card.rows"> -->

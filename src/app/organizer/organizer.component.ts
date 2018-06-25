@@ -22,16 +22,17 @@ export class OrganizerComponent implements OnInit {
     this.carpool = this.carpoolService.getCarpool(id);
   }
 
-  cards = [
-    { title: 'Card 1', cols: 2, rows: 1 },
-    { title: 'Card 2', cols: 1, rows: 1 },
-    { title: 'Card 3', cols: 1, rows: 2 },
-    { title: 'Card 4', cols: 1, rows: 1 }
-  ];
-
   ngOnInit() {
     const id = this.route.parent.snapshot.paramMap.get('id');
     this.getCarpool(id);
   }
   
+
+  addCar() {
+    //this.carpool.addCar();
+  }
+
+  addPerson() {
+    this.carpool.addPerson();
+  }
 }
