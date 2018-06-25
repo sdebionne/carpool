@@ -1,27 +1,33 @@
-<mat-toolbar>
-  <button mat-icon-button><mat-icon class="material-icons">add</mat-icon></button>
-
-</mat-toolbar>
-<div fxLayout="row" fxLayoutAlign="space-between none" >
+<div fxLayout="row" fxLayoutAlign="space-between none" fxFill>
   <div fxFlex="20%">
-<mat-list>
-  <mat-list-item *ngFor="let person of carpool.persons">
-    <img matListAvatar src="..." alt="...">
-    <h3 matLine> {{person.name}} </h3>
-    <p matLine>
-      <!-- <span> {{message.subject}} </span>
-      <span class="demo-2"> -- {{message.content}} </span> -->
-    </p>
-  </mat-list-item>
-</mat-list>
-</div>
-<mat-divider vertical="true"></mat-divider>
-<div fxFlex class="grid-container">
-  <mat-grid-list cols="3" rowHeight="500">
-    <!-- <mat-grid-tile *ngFor="let car of carpool.cars" [colspan]="card.cols" [rowspan]="card.rows"> -->
-    <mat-grid-tile *ngFor="let car of carpool.cars">
-      <car [car]="car"></car>
-    </mat-grid-tile>
-  </mat-grid-list>
-</div>
+    <mat-toolbar>
+      Passengers
+      <span fxFlex></span>
+      <button mat-icon-button (click)="addPassenger()"><mat-icon class="material-icons">add</mat-icon></button>
+    </mat-toolbar>
+    <mat-list>
+      <mat-list-item *ngFor="let person of carpool.persons">
+        <img matListAvatar src="..." alt="...">
+        <h3 matLine> {{person.name}} </h3>
+        <p matLine>
+          <!-- <span> {{message.subject}} </span>
+          <span class="demo-2"> -- {{message.content}} </span> -->
+        </p>
+      </mat-list-item>
+    </mat-list>
+  </div>
+  <mat-divider vertical="true"></mat-divider>
+  <div fxFlex class="grid-container">
+    <mat-toolbar>
+      Cars
+      <span fxFlex></span>
+      <button mat-icon-button (click)="addCar()"><mat-icon class="material-icons">add</mat-icon></button>
+    </mat-toolbar>
+    <mat-grid-list cols="3" rowHeight="500">
+      <!-- <mat-grid-tile *ngFor="let car of carpool.cars" [colspan]="card.cols" [rowspan]="card.rows"> -->
+      <mat-grid-tile *ngFor="let car of carpool.cars">
+        <car [car]="car"></car>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
 </div>

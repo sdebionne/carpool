@@ -10,14 +10,14 @@ import { CarpoolService } from '../carpool.service';
 @Component({
   selector: 'carpool',
   templateUrl: './carpool.component.html',
-  styleUrls: ['./carpool.component.css']
+  styleUrls: ['./carpool.component.scss']
 })
 export class CarpoolComponent implements OnInit {
 
   private title = 'Carpool';
   carpool: Carpool;
 
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Medium)
+  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches)
     );
