@@ -25,12 +25,13 @@
       <mat-divider></mat-divider>
       <h3 matSubheader>Passengers</h3>
       <mat-list-item *ngFor="let passenger of car.passengers">
-          <mat-icon matListIcon class="material-icons">person</mat-icon>
-          {{ passenger.name }}
-          <button mat-icon-button (click)="showInfo(passenger)">
-            <mat-icon>info</mat-icon>
-          </button>
-        </mat-list-item>
+        <mat-icon matListIcon class="material-icons">person</mat-icon>
+        <app-input-inline [(ngModel)]="passenger.name" placeholder="Enter passenger name"></app-input-inline>       
+        <span fxFlex></span>
+        <button mat-icon-button (click)="showInfo(passenger)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-list-item>
     </mat-list>
   </mat-card-content>
   <mat-card-actions *ngIf="car.passengers.length < car.max_passengers" align="end">

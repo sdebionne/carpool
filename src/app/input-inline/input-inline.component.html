@@ -1,0 +1,13 @@
+<div>
+  <mat-form-field>
+    <span matPrefix [innerHTML]="prefix"></span>
+    <input #inlineEditControl matInput [readonly]="!editing" [required]="required" (keypress)="keypress($event)" [name]="value" [(ngModel)]="value" [type]="type" [placeholder]="label" />
+    <span matSuffix  *ngIf="editing">
+      <button mat-icon-button [color]="confirmColor" (click)="confirm($event)"><mat-icon>done</mat-icon></button>
+      <button mat-icon-button [color]="cancelColor" (click)="cancel($event)"><mat-icon>clear</mat-icon></button>
+    </span>
+    <span matSuffix  *ngIf="!editing">
+      <button mat-icon-button [color]="'primary'" (click)="edit(value)"><mat-icon>mode_edit</mat-icon></button>
+    </span>
+  </mat-form-field>
+</div>

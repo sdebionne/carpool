@@ -9,7 +9,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { StoreModule } from '@ngrx/store';
 
-import { MatTooltipModule, MatDatepickerModule, MatNativeDateModule, MatStepperModule, MatFormFieldModule, MatOptionModule, MatInputModule, MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatGridListModule, MatCardModule, MatTableModule, MatPaginatorModule, MatSortModule, MatButtonModule, MatMenuModule } from '@angular/material';
+import { MaterialModule } from './material.module';
+
 
 import { AppComponent } from './app.component';
 import { CarpoolComponent } from './carpool/carpool.component';
@@ -18,11 +19,12 @@ import { OrganizerComponent } from './organizer/organizer.component';
 import { SummaryComponent } from './summary/summary.component';
 import { CarpoolFormComponent } from './carpool-form/carpool-form.component';
 import { CarComponent } from './car/car.component';
+import { CarFormComponent } from './car-form/car-form.component';
+import { InputInlineComponent } from './input-inline/input-inline.component';
 
 import { AppRoutingModule } from './/app-routing.module';
 
 import { reducers, metaReducers } from './reducers';
-import { CarFormComponent } from './car-form/car-form.component';
 
 
 @NgModule({
@@ -35,6 +37,7 @@ import { CarFormComponent } from './car-form/car-form.component';
     CarpoolFormComponent,
     CarComponent,
     CarFormComponent,
+    InputInlineComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,24 +46,7 @@ import { CarFormComponent } from './car-form/car-form.component';
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatButtonModule,
-    MatMenuModule,
-    MatSidenavModule,
-    MatListModule,
-    MatGridListModule,
-    MatCardModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
-    MatFormFieldModule,
-    MatOptionModule,
-    MatInputModule,
-    MatStepperModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatTooltipModule,
+    MaterialModule,
     AppRoutingModule,
     StoreModule.forRoot(reducers, { metaReducers }),
   ],
