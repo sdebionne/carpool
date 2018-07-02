@@ -10,23 +10,23 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
 
 @Component({
-  selector: 'app-input-inline',
-  templateUrl: './input-inline.component.html',
-  styleUrls: ['./input-inline.component.scss'],
+  selector: 'app-inline-edit',
+  templateUrl: './inline-edit.component.html',
+  styleUrls: ['./inline-edit.component.scss'],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => InputInlineComponent),
+      useExisting: forwardRef(() => InlineEditComponent),
       multi: true
     }
   ]
 })
-export class InputInlineComponent implements ControlValueAccessor, OnInit {
+export class InlineEditComponent implements ControlValueAccessor, OnInit {
 
   /** input control **/
   @ViewChild('inlineEditControl') inlineEditControl: ElementRef;
-  /** The control label **/
-  @Input() label = '';
+  /** The control placeholder **/
+  @Input() placeholder = '';
   /** Type of input control **/
   @Input() type = 'text';
   /** Input value required **/

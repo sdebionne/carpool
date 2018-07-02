@@ -1,23 +1,23 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { InputInlineComponent } from './input-inline.component';
+import { InlineEditComponent } from './inline-edit.component';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule, MatIconModule, MatInputModule, MatFormFieldModule } from '@angular/material';
 
-describe('InputInlineComponent', () => {
-  let component: InputInlineComponent;
-  let fixture: ComponentFixture<InputInlineComponent>;
+describe('InlineEditComponent', () => {
+  let component: InlineEditComponent;
+  let fixture: ComponentFixture<InlineEditComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [FormsModule, MatButtonModule, MatIconModule, MatInputModule, MatFormFieldModule],
-      declarations: [ InputInlineComponent ]
+      declarations: [ InlineEditComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(InputInlineComponent);
+    fixture = TestBed.createComponent(InlineEditComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

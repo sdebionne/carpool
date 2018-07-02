@@ -8,8 +8,8 @@ export class Carpool {
     public event: string,
     public date: Date,
     public email: string,
-    public cars: Array<Car> = [],
     public persons: Array<Person> = [],
+    public cars: Array<Car> = [],    
   ) {  }
 
   addCar(
@@ -18,7 +18,7 @@ export class Carpool {
     this.cars.push(car);
   }
 
-  addPerson(
+  public addPerson(
     person: Person = new Person(''),
   ) {
     this.persons.push(person);

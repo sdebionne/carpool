@@ -20,7 +20,7 @@ import { SummaryComponent } from './summary/summary.component';
 import { CarpoolFormComponent } from './carpool-form/carpool-form.component';
 import { CarComponent } from './car/car.component';
 import { CarFormComponent } from './car-form/car-form.component';
-import { InputInlineComponent } from './input-inline/input-inline.component';
+import { InlineEditComponent } from './inline-edit/inline-edit.component';
 
 import { AppRoutingModule } from './/app-routing.module';
 
@@ -37,7 +37,7 @@ import { reducers, metaReducers } from './reducers';
     CarpoolFormComponent,
     CarComponent,
     CarFormComponent,
-    InputInlineComponent,
+    InlineEditComponent,
   ],
   imports: [
     BrowserModule,

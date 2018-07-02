@@ -1,13 +1,13 @@
 import { Carpool } from './carpool';
 
 export const CARPOOLS: Array<Carpool> = [
-    {
-        id: '123',
-        event: 'Ma sortie louveteau',
-        date: new Date('2018-06-06'),
-        email: 'toto@google.com',
-        persons: [{name: 'Toto'}, {name: 'Titi'}],
-        cars: [{
+    new Carpool (
+        '123',
+        'Ma sortie louveteau',
+        new Date('2018-06-06'),
+        'toto@google.com',
+        [{name: 'Toto'}, {name: 'Titi'}],
+        [{
             name: 'Foo',
             contact: 'foo@bar.com',
             date: new Date(),
@@ -25,5 +25,5 @@ export const CARPOOLS: Array<Carpool> = [
             max_passengers: 6,
             passengers: [{name: 'Toto'}, {name: 'Titi'}],
         }],
-    } as Carpool,
+     ),
 ]

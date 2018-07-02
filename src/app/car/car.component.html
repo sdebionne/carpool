@@ -26,7 +26,7 @@
       <h3 matSubheader>Passengers</h3>
       <mat-list-item *ngFor="let passenger of car.passengers">
         <mat-icon matListIcon class="material-icons">person</mat-icon>
-        <app-input-inline [(ngModel)]="passenger.name" placeholder="Enter passenger name"></app-input-inline>       
+        <app-inline-edit [(ngModel)]="passenger.name" placeholder="Enter passenger name"></app-inline-edit>       
         <span fxFlex></span>
         <button mat-icon-button (click)="showInfo(passenger)">
           <mat-icon>delete</mat-icon>

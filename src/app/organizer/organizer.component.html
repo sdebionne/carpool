@@ -9,7 +9,7 @@
       <mat-list-item *ngFor="let person of carpool.persons">
         <!-- <img matListAvatar src="..." alt="..."> -->
         <!-- <h3 matLine> {{person.name}} </h3> -->
-        <app-input-inline matLine [(ngModel)]="person.name" placeholder="Enter passenger name"></app-input-inline>
+        <app-inline-edit matLine [(ngModel)]="person.name" placeholder="Passenger name"></app-inline-edit>
         <p matLine>
           <!-- <span> {{message.subject}} </span>
           <span class="demo-2"> -- {{message.content}} </span> -->
