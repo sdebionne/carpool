@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 
 import { Carpool } from './carpool';
 import { CARPOOLS } from './mock-carpools';
@@ -10,7 +11,9 @@ export class CarpoolService {
 
   constructor() { }
 
-  getCarpool(id: string): Carpool {
-    return CARPOOLS[0] ;
+  getCarpool(id: string): Observable<Carpool> {
+       console.log(CARPOOLS);
+    return of(CARPOOLS.find((c): boolean => { return c.id === id; }));
+    //return HttpClient.get<Hero[]>();
   }
 }

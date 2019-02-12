@@ -34,7 +34,8 @@ export class CarpoolComponent implements OnInit {
   }
 
   getCarpool(id: string): void {
-    this.carpool = this.carpoolService.getCarpool(id);
+    this.carpoolService.getCarpool(id)
+      .subscribe(carpool => this.carpool = carpool);
   }
 
   }
