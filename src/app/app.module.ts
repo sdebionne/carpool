@@ -22,16 +22,16 @@ import { CarComponent } from './car/car.component';
 import { CarFormComponent } from './car-form/car-form.component';
 import { InlineEditComponent } from './inline-edit/inline-edit.component';
 
-import { AppRoutingModule } from './/app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 
-import { reducers, metaReducers } from './reducers';
+import { carpoolReducer } from './reducers/carpool.reducer';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    CarpoolComponent,    
+    CarpoolComponent,
     OrganizerComponent,
     SummaryComponent,
     CarpoolFormComponent,
@@ -48,7 +48,7 @@ import { reducers, metaReducers } from './reducers';
     ReactiveFormsModule,
     MaterialModule,
     AppRoutingModule,
-    StoreModule.forRoot(reducers, { metaReducers }),
+    StoreModule.forRoot({ carpool: carpoolReducer }),
   ],
   providers: [],
   bootstrap: [AppComponent]
