@@ -24,7 +24,7 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 export class InlineEditComponent implements ControlValueAccessor, OnInit {
 
   /** input control **/
-  @ViewChild('inlineEditControl') inlineEditControl: ElementRef;
+  @ViewChild('inlineEditControl', {static: false}) inlineEditControl: ElementRef;
   /** The control placeholder **/
   @Input() placeholder = '';
   /** Type of input control **/

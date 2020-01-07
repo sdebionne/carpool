@@ -15,7 +15,7 @@ const routes: Routes = [
     path: 'carpool/:id',
     component: CarpoolComponent,
     children: [
-      {path: '', redirectTo: 'organizer', pathMatch: 'full'}, 
+      {path: '', redirectTo: 'organizer', pathMatch: 'full'},
       {path: 'organizer', component: OrganizerComponent},
       {path: 'table', component: SummaryComponent},
       {path: 'car/:id', component: CarFormComponent},

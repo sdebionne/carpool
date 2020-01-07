@@ -8,6 +8,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 
 import { MaterialModule } from './material.module';
 
@@ -25,6 +26,8 @@ import { InlineEditComponent } from './inline-edit/inline-edit.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { carpoolReducer } from './reducers/carpool.reducer';
+import { AppEffects } from './app.effects';
+// import { reducers, metaReducers } from './reducers';
 
 
 @NgModule({
@@ -49,6 +52,8 @@ import { carpoolReducer } from './reducers/carpool.reducer';
     MaterialModule,
     AppRoutingModule,
     StoreModule.forRoot({ carpool: carpoolReducer }),
+    EffectsModule.forRoot([AppEffects]),
+    // StoreModule.forRoot(reducers, { metaReducers }),
   ],
   providers: [],
   bootstrap: [AppComponent]

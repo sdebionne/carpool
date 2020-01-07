@@ -9,7 +9,7 @@ export class Carpool {
     public date: Date,
     public email: string,
     public persons: Array<Person> = [],
-    public cars: Array<Car> = [],    
+    public cars: Array<Car> = [],
   ) {  }
 
   addCar(
