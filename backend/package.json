@@ -1,0 +1,29 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/boom": "^9.0.0",
+    "@hapi/good": "^8.1.2",
+    "@hapi/good-console": "^8.0.0",
+    "@hapi/good-squeeze": "^5.1.0",
+    "@hapi/hapi": "^18.1.0",
+    "@hapi/inert": "^6.0.0",
+    "@hapi/joi": "^17.0.0",
+    "bcrypt": "^3.0.7",
+    "hapi-auth-jwt2": "^8.8.1",
+    "hapi-require-https": "^4.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "node-env-file": "^0.1.8",
+    "redis": "^2.8.0",
+    "uuid": "^3.3.3"
+  }
+}

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 import { LayoutModule } from '@angular/cdk/layout';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -27,6 +28,8 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { carpoolReducer } from './reducers/carpool.reducer';
 import { AppEffects } from './app.effects';
+import { SignupComponent } from './components/signup/signup.component';
+import { SigninComponent } from './components/signin/signin.component';
 // import { reducers, metaReducers } from './reducers';
 
 
@@ -41,10 +44,13 @@ import { AppEffects } from './app.effects';
     CarComponent,
     CarFormComponent,
     InlineEditComponent,
+    SignupComponent,
+    SigninComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     LayoutModule,
     FlexLayoutModule,
     FormsModule,
