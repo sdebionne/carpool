@@ -63,8 +63,16 @@ module.exports = {
         user.password = await hashPasswordAsync(req.payload.password);
         
         let key = 'users:' + user.username;
-        await redis.hsetAsync(key, 'email', user.email, 'username', user.username, 'password', user.password, 'admin', user.admin);
+
+        let multi = redis.multi();
+        multi.execAsync = promisify(multi.exec).bind(multi);
+
+        await multi.hset(key, 'email', user.email, 'username', user.username, 'password', user.password, 'admin', user.admin)
+          .sadd('indexes:users', key)
+          .execAsync();
         
+        //await redis.hsetAsync(key, 'email', user.email, 'username', user.username, 'password', user.password, 'admin', user.admin);
+
         // If the user is saved successfully, issue a JWT
         return h.response({ id_token: createToken(user) }).code(201);
       }
