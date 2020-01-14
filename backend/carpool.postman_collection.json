@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "carpool",
-		"_postman_id": "c0b6d30f-0add-a334-d098-e71559b370fe",
+		"_postman_id": "a17b365f-6dbf-a1eb-089d-08c4c2c4423f",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -37,6 +37,11 @@
 						"key": "Content-Type",
 						"value": "application/json",
 						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"description": ""
 					}
 				],
 				"body": {
@@ -61,7 +66,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"username\": \"admin\",\n\t\"password\": \"toto\"\n}"
+					"raw": "{\n\t\"username\": \"{{user}}\",\n\t\"password\": \"toto\"\n}"
 				},
 				"description": ""
 			},
