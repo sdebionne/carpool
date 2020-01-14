@@ -23,10 +23,12 @@ module.exports = {
     
     // Generate unique key
     let uid = uuidv4();
-    let key = 'users:' + user.username + ':carpools:' + uid;
+    let key = 'carpools:' + user.username + ':' + uid;
     let carpool = request.payload;
 
     try {
+
+
       await redis.hsetAsync(key, 'name', carpool.name, 'description', carpool.description, 'origin', carpool.origin, 'destination', carpool.destination);
       return h.response({ uid }).code(201);
     } catch (e) {
