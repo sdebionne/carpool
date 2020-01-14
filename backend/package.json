@@ -22,8 +22,12 @@
     "hapi-auth-jwt2": "^8.8.1",
     "hapi-require-https": "^4.0.0",
     "jsonwebtoken": "^8.5.1",
+    "module-alias": "^2.2.2",
     "node-env-file": "^0.1.8",
     "redis": "^2.8.0",
     "uuid": "^3.3.3"
+  },
+  "_moduleAliases": {
+    "@rk": "src/utils/rk.js"
   }
 }

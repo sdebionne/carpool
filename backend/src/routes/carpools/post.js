@@ -2,6 +2,7 @@ const Joi = require('@hapi/joi');
 const Boom = require('@hapi/boom');
 
 const uuidv4 = require('uuid/v4');
+const rk = require('@rk')
 
 const createCarpoolSchema = require('./schemas/createCarpool');
 
@@ -23,7 +24,7 @@ module.exports = {
     
     // Generate unique key
     let uid = uuidv4();
-    let key = 'carpools:' + user.username + ':' + uid;
+    let key = rk('carpools', user.username, uid);
     let carpool = request.payload;
 
     try {

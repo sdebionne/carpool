@@ -1,3 +1,4 @@
+require('module-alias/register')
 require('node-env-file')(`${__dirname}/.env`);
 
 const redis = require('redis');
