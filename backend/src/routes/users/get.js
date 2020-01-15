@@ -1,6 +1,8 @@
 const Joi = require('@hapi/joi');
 const Boom = require('@hapi/boom');
 
+const rk = require('@rk');
+
 module.exports = {
   method: 'GET',
   path: '/users',
@@ -26,7 +28,10 @@ module.exports = {
     let {start, count} = req.query;
 
     try {
-      let value = await redis.scanAsync(start, "MATCH", "users:*", "COUNT", count);
+      let value = await redis.sscanAsync(rk('indexes', 'users'), start, "COUNT", count);
+      
+      if (!value) value = [];
+      
       let cursor = value[0];
       let users = value[1];
 

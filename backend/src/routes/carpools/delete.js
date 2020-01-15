@@ -15,14 +15,14 @@ module.exports = {
     notes: 'Delete an item from the todo list',
     tags: ['api'],
   },
-  handler: async (request, h) => {
-    let {redis} = request.server.app;
-    let {redispath} = request.params.uid;
-    let {index: redisindex} = request.payload;    
+  handler: async (req, h) => {
+    let {redis} = req.server.app;
+    let {uid} = req.params;
+    let {index: redisindex} = req.payload;    
 
     try {
-      await redis.lsetAsync(redispath, redisindex, '__DELETE__');
-      await redis.lremAsync(redispath, 1, '__DELETE__');
+      await redis.lsetAsync(uid, redisindex, '__DELETE__');
+      await redis.lremAsync(uid, 1, '__DELETE__');
 
       return h.response({}).code(200);
     } catch (e) {

@@ -1,8 +1,9 @@
 const Joi = require('@hapi/joi');
 const Boom = require('@hapi/boom');
 
+const {promisify} = require('util');
 const uuidv4 = require('uuid/v4');
-const rk = require('@rk')
+const rk = require('@rk');
 
 const createCarpoolSchema = require('./schemas/createCarpool');
 
@@ -18,19 +19,23 @@ module.exports = {
     notes: 'Add an carpool to the list',
     tags: ['api'],
   },
-  handler: async (request, h) => {
-    let {redis} = request.server.app;
-    let user = request.auth.credentials;
+  handler: async (req, h) => {
+    let {redis} = req.server.app;
+    let user = req.auth.credentials;
     
     // Generate unique key
     let uid = uuidv4();
-    let key = rk('carpools', user.username, uid);
-    let carpool = request.payload;
+    let key = rk('carpools', uid);
+    let carpool = req.payload;
 
     try {
+      let multi = redis.multi();
+      multi.execAsync = promisify(multi.exec).bind(multi);
 
-
-      await redis.hsetAsync(key, 'name', carpool.name, 'description', carpool.description, 'origin', carpool.origin, 'destination', carpool.destination);
+      await multi.hset(key, 'name', carpool.name, 'description', carpool.description, 'origin', carpool.origin, 'destination', carpool.destination)
+        .sadd(rk('users', user.username, 'carpools'), key)
+        .execAsync();
+      
       return h.response({ uid }).code(201);
     } catch (e) {
       return Boom.badImplementation(e);

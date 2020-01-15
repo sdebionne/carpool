@@ -34,10 +34,16 @@ const start = async () => {
   redisClient.llenAsync = promisify(redisClient.llen).bind(redisClient);
   redisClient.lremAsync = promisify(redisClient.lrem).bind(redisClient);
   redisClient.lsetAsync = promisify(redisClient.lset).bind(redisClient);
+  
+  // Sets
+  redisClient.sscanAsync = promisify(redisClient.sscan).bind(redisClient);
 
   // Hashes
   redisClient.hsetAsync = promisify(redisClient.hset).bind(redisClient);
   redisClient.hgetallAsync = promisify(redisClient.hgetall).bind(redisClient);
+  
+  // Sort
+  redisClient.sortAsync = promisify(redisClient.sort).bind(redisClient);
 
   redisClient.on("error", function (err) {
     console.error("Redis error.", err);

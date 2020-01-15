@@ -1,4 +1,5 @@
 const bcrypt = require('bcrypt');
+const rk = require('@rk');
 
 const Boom = require('@hapi/boom');
 
@@ -10,10 +11,9 @@ async function verifyCredentials(req, h) {
 
   const password = req.payload.password;
   
-  let key = 'users:' + req.payload.username;
+  let key = rk('users', req.payload.username);
 
-  // Find an entry from the database that
-  // matches either the email or username
+  // Find an entry from the database that matches username
   let user = await redis.hgetallAsync(key);
   if (user) {
     let isValid = await bcrypt.compare(password, user.password);
