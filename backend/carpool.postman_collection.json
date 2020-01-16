@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "carpool",
-		"_postman_id": "a17b365f-6dbf-a1eb-089d-08c4c2c4423f",
+		"_postman_id": "c38444ad-2dbd-d357-f65b-b8b70b5960eb",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -53,6 +53,31 @@
 			"response": []
 		},
 		{
+			"name": "/api/v1/users/uid/carpools",
+			"request": {
+				"url": "http://localhost:3000/api/v1/users/sam/carpools",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"SamSam6\",\n\t\"email\": \"samuel.debionne@gmail.com\",\n\t\"password\": \"toto\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
 			"name": "/api/v1/signin",
 			"request": {
 				"url": "http://localhost:3000/api/v1/signin",
@@ -73,9 +98,9 @@
 			"response": []
 		},
 		{
-			"name": "/api/v1/carpools",
+			"name": "/api/v1/carpools/uid",
 			"request": {
-				"url": "http://localhost:3000/api/v1/carpools",
+				"url": "http://localhost:3000/api/v1/carpools/cd01760a-bb24-4e28-a6e3-d8f0e540ae22",
 				"method": "GET",
 				"header": [
 					{

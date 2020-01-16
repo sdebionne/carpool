@@ -4,7 +4,7 @@ const rk = require('@rk');
 const Boom = require('@hapi/boom');
 
 const {createToken} = require('./common');
-const authenticateUserSchema = require('./schemas/authenticateUser');
+const authenticateUserSchema = require('@schemas/authenticateUser');
 
 async function verifyCredentials(req, h) {
   let {redis} = req.server.app;

@@ -4,10 +4,12 @@ const routes = [
   './routes/users/signin',
   './routes/users/signup',
   './routes/users/get',
+  './routes/users/carpools/get',
+  './routes/users/carpools/post',
+  './routes/users/carpools/delete',
   './routes/carpools/get',
-  './routes/carpools/get_one',
-  './routes/carpools/post',
-  './routes/carpools/delete',
+  './routes/carpools/put',
+  './routes/carpools/passengers/post',
 
 ].map((elem) => require(elem));
 

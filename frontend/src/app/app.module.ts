@@ -13,6 +13,8 @@ import { EffectsModule } from '@ngrx/effects';
 
 import { MaterialModule } from './material.module';
 
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
 
 import { AppComponent } from './app.component';
 import { CarpoolComponent } from './carpool/carpool.component';
@@ -32,6 +34,8 @@ import { SignupComponent } from './components/signup/signup.component';
 import { SigninComponent } from './components/signin/signin.component';
 // import { reducers, metaReducers } from './reducers';
 
+// Register french local
+registerLocaleData(localeFr, 'fr');
 
 @NgModule({
   declarations: [

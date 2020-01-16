@@ -8,6 +8,8 @@ import { Store } from '@ngrx/store';
 import { Carpool } from '../carpool';
 import { CarpoolService } from '../carpool.service';
 
+import { Person } from '../person';
+
 @Component({
   selector: 'app-carpool',
   templateUrl: './carpool.component.html',
@@ -35,5 +37,7 @@ export class CarpoolComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     this.store.dispatch({ type: '[Carpool Page] Load Carpool' });
   }
+
+  showInfo(passenger: Person) { console.log(passenger); }
 
 }

@@ -7,7 +7,7 @@ const rk = require('@rk');
 const Boom = require('@hapi/boom');
 
 const {createToken} = require('./common');
-const createUserSchema = require('./schemas/createUser');
+const createUserSchema = require('@schemas/createUser');
 
 async function verifyUniqueUser(req, h) {
   let {redis} = req.server.app;
