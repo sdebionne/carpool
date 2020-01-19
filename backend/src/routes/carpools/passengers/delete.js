@@ -5,15 +5,15 @@ const rk = require('@rk');
 const passenger = require('@schemas/passenger');
 
 module.exports = {
-  method: 'POST',
+  method: 'DELETE',
   path: '/carpools/{carpool_uid}/passengers',
   options: {
     auth: false,
     validate: {
       payload: passenger,
     },
-    description: 'Add a passenger to the waiting list',
-    notes: 'Add a passenger to the waiting list',
+    description: 'Remove a passenger from the waiting list',
+    notes: 'Remove a passenger from the waiting list',
     tags: ['api'],
   },
   handler: async (request, h) => {
@@ -22,7 +22,7 @@ module.exports = {
     let {carpool_uid} = request.params;
 
     try {
-      let res = await redis.saddAsync(rk('carpools', carpool_uid, 'passengers'), JSON.stringify(passenger));
+      let res = await redis.sremAsync(rk('carpools', carpool_uid, 'passengers'), JSON.stringify(passenger));
       let count = await redis.scardAsync(rk('carpools', carpool_uid, 'passengers'));
 
       return h.response({ count }).code(201);

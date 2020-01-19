@@ -9,6 +9,7 @@ module.exports = {
   method: 'PUT',
   path: '/carpools/{uid}',
   options: {
+    auth: false,
     validate: {
       payload: carpoolSchema,
     },

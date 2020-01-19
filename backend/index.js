@@ -36,6 +36,9 @@ const start = async () => {
   redisClient.lsetAsync = promisify(redisClient.lset).bind(redisClient);
   
   // Sets
+  redisClient.saddAsync = promisify(redisClient.sadd).bind(redisClient);
+  redisClient.sremAsync = promisify(redisClient.srem).bind(redisClient);
+  redisClient.scardAsync = promisify(redisClient.scard).bind(redisClient);
   redisClient.sscanAsync = promisify(redisClient.sscan).bind(redisClient);
 
   // Hashes

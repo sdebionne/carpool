@@ -9,7 +9,9 @@ const routes = [
   './routes/users/carpools/delete',
   './routes/carpools/get',
   './routes/carpools/put',
+  './routes/carpools/passengers/get',
   './routes/carpools/passengers/post',
+  './routes/carpools/passengers/delete',
 
 ].map((elem) => require(elem));
 

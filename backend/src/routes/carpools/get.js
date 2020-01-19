@@ -1,14 +1,13 @@
 const Boom = require('@hapi/boom');
 
 const rk = require('@rk');
-const crypto = require('crypto');
-
-const hash = crypto.createHash('md5');
+var hash = require('object-hash');
 
 module.exports = {
   method: 'GET',
   path: '/carpools/{uid}',
   options: {
+    auth: false,
     description: 'Get carpool',
     notes: 'Get one carpool',
     tags: ['api'],
@@ -23,9 +22,11 @@ module.exports = {
     try {
       
       let value = await redis.hgetallAsync(key);
-      etag = hash.update(value.toString()).digest('hex');
 
-      return h.entity({ etag: etag }).response(value);
+      let etag = hash.MD5(value);
+      h.entity({ etag: etag });
+      
+      return h.response(value);
     } catch (e) {
       return Boom.badImplementation(e);
     }
