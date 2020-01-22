@@ -2,7 +2,7 @@ require('module-alias/register')
 require('node-env-file')(`${__dirname}/.env`);
 
 const redis = require('redis');
-const {promisify} = require('util');
+const redisPromisify = require('./src/redis');
 
 const createServer = require('./src/server');
 
@@ -23,30 +23,8 @@ const start = async () => {
       port: process.env.REDIS_PORT,
     }
   );
-
-  // Keys
-  redisClient.existsAsync = promisify(redisClient.exists).bind(redisClient);
-  redisClient.scanAsync = promisify(redisClient.scan).bind(redisClient);
-
-  // Lists
-  redisClient.lpushAsync = promisify(redisClient.lpush).bind(redisClient);
-  redisClient.lrangeAsync = promisify(redisClient.lrange).bind(redisClient);
-  redisClient.llenAsync = promisify(redisClient.llen).bind(redisClient);
-  redisClient.lremAsync = promisify(redisClient.lrem).bind(redisClient);
-  redisClient.lsetAsync = promisify(redisClient.lset).bind(redisClient);
   
-  // Sets
-  redisClient.saddAsync = promisify(redisClient.sadd).bind(redisClient);
-  redisClient.sremAsync = promisify(redisClient.srem).bind(redisClient);
-  redisClient.scardAsync = promisify(redisClient.scard).bind(redisClient);
-  redisClient.sscanAsync = promisify(redisClient.sscan).bind(redisClient);
-
-  // Hashes
-  redisClient.hsetAsync = promisify(redisClient.hset).bind(redisClient);
-  redisClient.hgetallAsync = promisify(redisClient.hgetall).bind(redisClient);
-  
-  // Sort
-  redisClient.sortAsync = promisify(redisClient.sort).bind(redisClient);
+  redisPromisify(redisClient);
 
   redisClient.on("error", function (err) {
     console.error("Redis error.", err);
@@ -55,9 +33,7 @@ const start = async () => {
   server.app.redis = redisClient;
 
   await server.start();
-
-  console.log(`Server running at: ${server.info.uri}/api/v1`);
-  //console.log(`Server docs running at: ${server.info.uri}/docs`);
+  return server;
 };
 
 process.on('unhandledRejection', (err) => {
@@ -65,4 +41,11 @@ process.on('unhandledRejection', (err) => {
   process.exit(1);
 });
 
-start();
+start()
+  .then(server => {
+    console.log(`Server listening on ${server.info.uri}/api/v1`);
+  })
+  .catch(err => {
+    console.error(err);
+    process.exit(1);
+  });

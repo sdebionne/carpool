@@ -1,8 +1,8 @@
-//const Joi = require('@hapi/joi');
+const Joi = require('@hapi/joi');
 const Boom = require('@hapi/boom');
 
 const rk = require('@rk');
-//const passenger = require('@schemas/passenger');
+const passenger = require('@schemas/person');
 
 module.exports = {
   method: 'GET',
@@ -12,6 +12,10 @@ module.exports = {
     description: 'Get passenger waiting list',
     notes: 'Get passenger waiting list',
     tags: ['api'],
+    response: {
+      schema: Joi.array().items(passenger),
+      failAction: 'log',
+    },
   },
   handler: async (request, h) => {
     let {redis} = request.server.app;

@@ -12,6 +12,9 @@ const routes = [
   './routes/carpools/passengers/get',
   './routes/carpools/passengers/post',
   './routes/carpools/passengers/delete',
+  './routes/carpools/cars/get',
+  './routes/carpools/cars/post',
+  './routes/carpools/cars/delete',
 
 ].map((elem) => require(elem));
 

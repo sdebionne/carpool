@@ -2,7 +2,7 @@ const Joi = require('@hapi/joi');
 const Boom = require('@hapi/boom');
 
 const rk = require('@rk');
-const passenger = require('@schemas/passenger');
+const passenger = require('@schemas/person');
 
 module.exports = {
   method: 'DELETE',

@@ -19,8 +19,8 @@ module.exports = {
         count: Joi.number().min(1).max(100).default(10).note('Number of results to return'),
       }),
     },
-    description: 'Get users',
-    notes: 'Get users from carpool site',
+    description: 'Get the list of users (restricted)',
+    notes: 'Get the list of users',
     tags: ['api'],
   },
   handler: async (req, h) => {

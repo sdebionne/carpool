@@ -9,6 +9,6 @@ const authenticateUserSchema = Joi.alternatives().try(
     email: Joi.string().email().required(),
     password: Joi.string().required()
   })
-);
+).label('Authentication');
 
 module.exports = authenticateUserSchema;

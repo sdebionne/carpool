@@ -21,8 +21,8 @@ module.exports = {
         count: Joi.number().min(1).max(100).default(10).note('Number of results to return'),
       }),
     },
-    description: 'Get items',
-    notes: 'Get items from todo list paged',
+    description: 'Get carpools of the given user',
+    notes: 'Get carpools of the given user',
     tags: ['api'],
   },
   handler: async (req, h) => {
@@ -39,6 +39,7 @@ module.exports = {
       if (!value) value = [];
       else value = _(value).chunk(2).map((array) => { return {uid: array[0], name: array[1]}; });
 
+      // TODO: implement paging
       let cursor = 0;
 
       return h.response({
