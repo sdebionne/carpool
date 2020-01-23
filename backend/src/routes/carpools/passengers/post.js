@@ -11,6 +11,9 @@ module.exports = {
     auth: false,
     validate: {
       payload: passenger,
+      params: Joi.object({
+        carpool_uid: Joi.string().guid().description('Carpool UID'),
+      }),
     },
     description: 'Add a passenger to the waiting list',
     notes: 'Add a passenger to the waiting list',

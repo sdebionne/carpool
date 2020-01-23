@@ -12,6 +12,9 @@ module.exports = {
     auth: false,
     validate: {
       payload: carpoolSchema,
+      params: Joi.object({
+        uid: Joi.string().guid().description('Carpool UID'),
+      }),
     },
     description: 'Modify a carpool',
     notes: 'Modify a carpool',

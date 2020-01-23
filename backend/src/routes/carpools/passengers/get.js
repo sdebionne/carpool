@@ -12,6 +12,11 @@ module.exports = {
     description: 'Get passenger waiting list',
     notes: 'Get passenger waiting list',
     tags: ['api'],
+    validate: {
+      params: Joi.object({
+        carpool_uid: Joi.string().guid().description('Carpool UID'),
+      }),
+    },
     response: {
       schema: Joi.array().items(passenger),
       failAction: 'log',

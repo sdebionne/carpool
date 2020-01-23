@@ -20,6 +20,9 @@ module.exports = {
         start: Joi.number().min(0).default(0).note('Start index of results inclusive'),
         count: Joi.number().min(1).max(100).default(10).note('Number of results to return'),
       }),
+      params: Joi.object({
+        uid: Joi.string().description('User UID'),
+      }),
     },
     description: 'Get carpools of the given user',
     notes: 'Get carpools of the given user',
@@ -37,7 +40,7 @@ module.exports = {
       let value = await redis.sortAsync(key, 'BY', 'nosort', 'GET', '#', 'GET', '*->name', 'LIMIT', start, count);
 
       if (!value) value = [];
-      else value = _(value).chunk(2).map((array) => { return {uid: array[0], name: array[1]}; });
+      else value = _(value).chunk(2).map((array) => { return {uid: array[0].substring(8), name: array[1]}; });
 
       // TODO: implement paging
       let cursor = 0;

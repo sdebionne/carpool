@@ -11,6 +11,9 @@ module.exports = {
     auth: false,
     validate: {
       payload: car,
+      params: Joi.object({
+        carpool_uid: Joi.string().guid().description('Carpool UID'),
+      }),
     },
     description: 'Add a car to the carpool',
     notes: 'Add a car to the carpool',
@@ -22,6 +25,7 @@ module.exports = {
     let {carpool_uid} = request.params;
 
     try {
+      // TODO: Use multi
       let res = await redis.saddAsync(rk('carpools', carpool_uid, 'cars'), JSON.stringify(car));
       let count = await redis.scardAsync(rk('carpools', carpool_uid, 'cars'));
 

@@ -14,7 +14,7 @@ module.exports = {
     tags: ['api'],
     validate: {
       params: Joi.object({
-        pageNo: Joi.number().description('Carpool UID'),
+        carpool_uid: Joi.string().guid().description('Carpool UID'),
       }),
     },
     response: {

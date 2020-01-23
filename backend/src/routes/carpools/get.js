@@ -1,3 +1,4 @@
+const Joi = require('@hapi/joi');
 const Boom = require('@hapi/boom');
 
 const rk = require('@rk');
@@ -11,6 +12,11 @@ module.exports = {
     description: 'Get carpool',
     notes: 'Get one carpool',
     tags: ['api'],
+    validate: {
+      params: Joi.object({
+        uid: Joi.string().guid().description('Carpool UID'),
+      }),
+    },
   },
   handler: async (req, h) => {
     let {redis} = req.server.app;
