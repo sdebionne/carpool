@@ -15,6 +15,12 @@ module.exports = {
       else
         throw Boom.forbidden('Invalid credential for this resource!');
     }],
+    validate: {
+      params: Joi.object({
+        user_uid: Joi.string().description('User UID'),
+        carpool_uid: Joi.string().guid().description('Carpool UID'),
+      }),
+    },
     description: 'Delete carpool',
     notes: 'Delete a carpool from the carpool set',
     tags: ['api'],
