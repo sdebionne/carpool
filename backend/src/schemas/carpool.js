@@ -1,4 +1,4 @@
-const Joi = require('@hapi/joi');
+const Joi = require('joi');
 
 const carpoolSchema = Joi.object({
   name: Joi.string().required().description('Name of carpool'),

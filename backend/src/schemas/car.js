@@ -1,4 +1,4 @@
-const Joi = require('@hapi/joi');
+const Joi = require('joi');
 
 const carSchema = Joi.object({
     driver: require('./driver').required(),
