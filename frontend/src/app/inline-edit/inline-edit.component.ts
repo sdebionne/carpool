@@ -1,4 +1,4 @@
-import { Component, Input, ElementRef, ViewChild, Renderer, forwardRef, OnInit, Renderer2 } from '@angular/core';
+import { Component, Input, ElementRef, ViewChild, forwardRef, OnInit, Renderer2 } from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
 
@@ -65,7 +65,7 @@ export class InlineEditComponent implements ControlValueAccessor, OnInit {
   }
 
   // ControlValueAccessor interface impl
-  public registerOnChange(fn: (_: any) => {}): void {
+  public registerOnChange(fn: () => {}): void {
     this.onChange = fn;
   }
 
@@ -84,14 +84,14 @@ export class InlineEditComponent implements ControlValueAccessor, OnInit {
     this.changed($event, this);
   }
 
-  keypress($event) {
+  keypress($event: KeyboardEvent) {
     if ($event.keyCode === 13) {
       this.confirm($event);
     }
   }
 
   // Start editing
-  edit(value) {
+  edit(value: any) {
     if (this.disabled) {
       return;
     }
@@ -99,7 +99,7 @@ export class InlineEditComponent implements ControlValueAccessor, OnInit {
     this.preValue = value;
     this.editing = true;
     // Set focus on the input element, but we need to give it one cycle so it is ready
-    setTimeout(_ => this.inlineEditControl.nativeElement.focus());
+    setTimeout(() => this.inlineEditControl.nativeElement.focus());
   }
 
 

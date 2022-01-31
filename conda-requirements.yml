@@ -1,0 +1,7 @@
+name: carpool
+channels:
+  - conda-forge
+dependencies:
+  - conda-forge/linux-64::nodejs==16
+  - redis-server
+prefix: /home/debionne/miniconda3/envs/carpool

@@ -7,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignupComponent implements OnInit {
 
-  Roles: any = ['Admin', 'Author', 'Reader'];
+  Roles: string[] = ['Admin', 'Author', 'Reader'];
+
+  selected: string = this.Roles[0];
 
   constructor() { }
 

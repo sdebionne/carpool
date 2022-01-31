@@ -1,7 +1,9 @@
 export class Person {
 
+    name: string;
+
     constructor(
-        public name: string,
+        name?: string,
       ) {  }
 
 }

@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-import { Carpool } from '../carpool';
+import { Carpool, Car, Person } from '../carpool';
 import { CarpoolService } from '../carpool.service';
-import { AddCar } from '../reducers/carpool.action';
 
 @Component({
   selector: 'app-organizer',
@@ -14,32 +12,27 @@ import { AddCar } from '../reducers/carpool.action';
 })
 export class OrganizerComponent implements OnInit {
 
-  carpool: Observable<Carpool>;
+  carpool: Carpool;
 
   constructor(
-    private store: Store<{ carpool: Carpool }>,
     private route: ActivatedRoute,
     private carpoolService: CarpoolService,
   ) {
-    this.carpool = store.pipe(select('carpool'));
   }
 
-  // getCarpool(id: string): void {
-  //   this.carpoolService.getCarpool(id)
-  //     .subscribe(carpool => this.carpool = carpool);
-  // }
-
   ngOnInit() {
-    const id = this.route.parent.snapshot.paramMap.get('id');
-    // this.getCarpool(id);
+    const id = this.route.parent?.snapshot.paramMap.get('id');
+    if (id) {
+      this.carpool = this.carpoolService.get(id)?? new Carpool("0", "New Event", new Date(), "");
+    }
   }
 
 
   addCar() {
-    this.store.dispatch(new AddCar());
+    this.carpool.addCar(new Car());
   }
 
-  // addPerson() {
-  //   this.carpool.addPerson();
-  // }
+  addPerson() {
+    this.carpool.addPerson(new Person());
+  }
 }

@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 class User {
-  email: string;
-  password: string;
+  email: string = "";
+  password: string = "";
 }
 
 @Injectable({
